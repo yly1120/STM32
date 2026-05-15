@@ -97,7 +97,7 @@ static uint8_t uart1_send_byte(uint8_t data)
     uint8_t ok;
 
     __disable_irq();    // 关闭中断,防止与中断处理函数冲突
-    ok = rb_push(&uart1_rx_rb, data);
+    ok = rb_push(&uart1_tx_rb, data);
     if(ok)
     {
         uart1_start_tx();
